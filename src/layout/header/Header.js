@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {AppTitle} from './AppTitle';
-import Navigation from './Navigation';
-import {AbstractSegment} from '../../AbstractSegment';
+import {AppTitle} from 'layout/header/AppTitle';
+import Navigation from 'layout/header/Navigation';
+import {AbstractSegment} from 'common/AbstractSegment';
 
 export class Header extends Component {
 
