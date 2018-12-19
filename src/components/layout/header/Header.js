@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {AppTitle} from './AppTitle';
 import Navigation from './Navigation';
+import {AbstractSegment} from '../../AbstractSegment';
 
 export class Header extends Component {
 
@@ -15,6 +16,7 @@ export class Header extends Component {
       <div className={"navigation-div"}>
         <AppTitle/>
         {this.renderNavigation()}
+        <AbstractSegment/>
       </div>
   )
 

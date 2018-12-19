@@ -2,10 +2,13 @@
   "name": "meta-lang",
   "version": "1.0.1",
   "devDependencies": {
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "react-scripts": "1.1.4"
   },
   "dependencies": {
     "axios": "0.18.0",
+    "classnames": "^2.2.6",
     "metamatic": "2.3.5",
     "react": "16.4.1",
     "react-dom": "16.4.1",
@@ -15,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass --include-path scss src/styles.scss ./src/assets/css/styles.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   }
 }
