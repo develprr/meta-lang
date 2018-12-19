@@ -1,4 +1,3 @@
-const classNames = require('classnames');
 import React, {Component} from 'react';
 
 export class VocabularyView extends Component {
