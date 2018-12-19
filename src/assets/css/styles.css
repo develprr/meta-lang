@@ -1,2 +1,6 @@
 .segment {
   background-color: orchid; }
+
+#root {
+  max-width: 800px;
+  margin: auto; }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Route} from 'react-router-dom';
-import {Header} from 'components/layout/header/Header';
+import {Header} from 'layout/header/Header';
 import BrowserRouter from 'react-router-dom/es/BrowserRouter';
 import {LanguageView} from 'views/language/LanguageView';
 

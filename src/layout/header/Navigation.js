@@ -8,7 +8,11 @@ class Navigation extends Component {
     this.state = {};
   }
 
-  render = () => <div>Navigation</div>
+  render = () => (
+      <div className={'navigation'}>
+
+      </div>
+  )
 
 }
 
