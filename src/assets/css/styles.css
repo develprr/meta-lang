@@ -20,3 +20,5 @@
     margin: 10px; }
     .navi-bar .navi-item i {
       font-size: 50px; }
+  .navi-bar .active {
+    border-width: 5px; }

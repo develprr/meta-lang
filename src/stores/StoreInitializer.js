@@ -3,6 +3,7 @@ import {LanguageStore} from 'stores/language/LanguageStore';
 import {ProfileStore} from 'stores/profile/ProfileStore';
 import {VocabularyStore} from 'stores/vocabulary/VocabularyStore';
 import {ApplicationStore} from './application/ApplicationStore';
+import {broadcastCurrentUrl} from '../utils/RouteUtil';
 
 export const initStores = () => {
   ApplicationStore();
@@ -10,4 +11,5 @@ export const initStores = () => {
   LanguageStore();
   ProfileStore();
   VocabularyStore();
+  broadcastCurrentUrl();
 }
