@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {AppTitle} from 'layout/header/AppTitle';
-import Navigation from 'layout/header/NaviBar';
+import {NaviBar} from 'layout/header/NaviBar';
 import {AbstractSegment} from 'common/AbstractSegment';
 
 export class Header extends Component {
@@ -10,7 +10,7 @@ export class Header extends Component {
     this.state = {};
   }
 
-  renderNavigation = () => <Navigation/>
+  renderNavigation = () => <NaviBar/>
 
   render = () => (
       <div className={"navigation-div"}>
