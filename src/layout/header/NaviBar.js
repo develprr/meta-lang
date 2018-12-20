@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 import {disconnectFromStores} from 'metamatic';
-import {connectToRoute, navigateTo} from '../../stores/application/RouteStore';
+import {connectToUrl, updateUrl} from '../../utils/RouteUtil';
 
 const classNames = require('classnames');
 
 class NaviItem extends Component {
 
-  componentDidMount = () => connectToRoute(this, (route) => this.setState({route}));
+  componentDidMount = () => connectToUrl(this, (url) => this.setState({url}));
 
   componentWillUnmount = () => disconnectFromStores(this);
 
-  isActive = () => (this.state || {}).route === this.props.name;
+  isActive = () => (this.state || {}).url === this.props.path;
 
   getStateClass = () => this.isActive() && 'active';
 
-  onClick = () => navigateTo(this.props.name);
+  onClick = () => updateUrl(this.props.path);
 
   render = () => (
     <div className={classNames('navi-item', this.getStateClass())} onClick={this.onClick}>
@@ -27,10 +27,10 @@ export class NaviBar extends Component {
 
   render = () => (
     <div className={'navi-bar'}>
-      <NaviItem name={'language'} icon={'language'}>Language</NaviItem>
-      <NaviItem name={'vocabulary'} icon={'library_books'}>Vocabulary</NaviItem>
-      <NaviItem name={'exercises'} icon={'question_answer'}>Exercises</NaviItem>
-      <NaviItem name={'profile'} icon={'face'}>Profile</NaviItem>
+      <NaviItem path={'/language'} icon={'language'}>Language</NaviItem>
+      <NaviItem path={'/vocabulary'} icon={'library_books'}>Vocabulary</NaviItem>
+      <NaviItem path={'/exercises'} icon={'question_answer'}>Exercises</NaviItem>
+      <NaviItem path={'/profile'} icon={'face'}>Profile</NaviItem>
     </div>
   )
 
