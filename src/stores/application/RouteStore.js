@@ -1,16 +1,10 @@
-import {connectToState, setState, setStore} from 'metamatic';
+import {setState} from 'metamatic';
 
+// Define the Route Stores name as constant
 export const STORE_ROUTE = 'STORE_ROUTE';
 
-export const RouteStore = () => setStore(STORE_ROUTE, {
-  route: getCurrentRoute()
-});
-
+// Calling navigateTo will update STORE_ROUTE and fire a routing event.
 export const navigateTo = (url) => {
   window.history.pushState({}, "", url);
   setState(STORE_ROUTE, 'route', url);
 }
-
-export const getCurrentRoute = () => window.location.pathname;
-
-export const connectToRoute = (listener, callback) => connectToState(listener, STORE_ROUTE, 'route', callback);
