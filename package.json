@@ -11,8 +11,7 @@
     "classnames": "^2.2.6",
     "metamatic": "2.3.6",
     "react": "16.4.1",
-    "react-dom": "16.4.1",
-    "react-router-dom": "4.3.1"
+    "react-dom": "16.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

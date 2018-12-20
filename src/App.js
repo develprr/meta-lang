@@ -1,26 +1,26 @@
-import React from 'react';
-import {Route} from 'react-router-dom';
+import React, {Component} from 'react';
 import {Header} from 'layout/header/Header';
-import BrowserRouter from 'react-router-dom/es/BrowserRouter';
 import {LanguageView} from 'views/language/LanguageView';
+import {VocabularyView} from 'views/vocabulary/VocabularyView';
+import {getCurrentRoute, STORE_ROUTE} from 'stores/application/RouteStore';
+import {connectToStore} from 'metamatic';
 
-export class App extends React.Component {
+export class App extends Component {
+
+  componentDidMount = () => connectToStore(STORE_ROUTE, () => this.setState({...this.state}));
 
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  renderContent = () => (
-    <div className="meta-lang">
-      <Route path='/' component={Header}/>
-      <Route path='/language' component={LanguageView}/>
-    </div>
-  )
+  renderRoute = (pattern, component) => getCurrentRoute().match(pattern) && component;
 
   render = () => (
-    <BrowserRouter>
-      {this.renderContent()}
-    </BrowserRouter>
+    <div className="meta-lang">
+      {this.renderRoute('/', <Header/>)}
+      {this.renderRoute('/language', <LanguageView/>)}
+      {this.renderRoute('/vocabulary', <VocabularyView/>)}
+    </div>
   )
 }

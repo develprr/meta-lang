@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import withRouter from 'react-router-dom/withRouter';
-import {connectToState, disconnectFromStores} from 'metamatic';
-import {STORE_APPLICATION} from 'stores/application/ApplicationStore';
-import {navigateTo} from '../../stores/application/ApplicationStore';
+import {disconnectFromStores} from 'metamatic';
+import {connectToRoute, navigateTo} from '../../stores/application/RouteStore';
 
 const classNames = require('classnames');
 
 class NaviItem extends Component {
 
-  componentDidMount = () => connectToState(this, STORE_APPLICATION, 'activeView', (activeView) => this.setState({activeView}));
+  componentDidMount = () => connectToRoute(this, (route) => this.setState({route}));
 
   componentWillUnmount = () => disconnectFromStores(this);
 
-  isActive = () => (this.state || {}).activeView === this.props.name;
+  isActive = () => (this.state || {}).route === this.props.name;
 
   getStateClass = () => this.isActive() && 'active';
 
@@ -25,7 +23,7 @@ class NaviItem extends Component {
   );
 }
 
-class NaviBar extends Component {
+export class NaviBar extends Component {
 
   render = () => (
     <div className={'navi-bar'}>
@@ -38,4 +36,3 @@ class NaviBar extends Component {
 
 }
 
-export default withRouter(NaviBar);
