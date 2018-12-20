@@ -1,35 +1,38 @@
 import React, {Component} from 'react';
 import withRouter from 'react-router-dom/withRouter';
+import {connectToState, disconnectFromStores} from 'metamatic';
+import {STORE_APPLICATION} from '../../stores/application/ApplicationStore';
+
 const classNames = require('classnames');
 
-class NaviLink extends Component {
+class NaviItem extends Component {
+
+  componentDidMount = () => connectToState(this, STORE_APPLICATION, 'activeView', (activeView) => this.setState({activeView}));
+
+  componentWillUnmount = () => disconnectFromStores(this);
+
+  isActive = () => (this.state || {}).activeView === this.props.name;
+
+  getStateClass = () => this.isActive() && 'active';
 
   render = () => (
-    <li className={'navi'} onClick={this.onClick}>-
-      <div className={classNames("circle", this.getCssClassActive())}>
-        <i className={'material-icons'}>{this.props.icon}</i>
-      </div>
-      <div className={"description"}>{this.props.description}</div>
-    </li>
-  )
+    <div className={classNames('navi-item', this.getStateClass())} onClick={this.onClick}>
+      <i className={'material-icons'}>{this.props.icon}</i>
+    </div>
+  );
 }
 
-class Navigation extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+class NaviBar extends Component {
 
   render = () => (
-      <ul className={'navigation'}>
-        <NaviListItem>Language</NaviListItem>
-        <NaviListItem>Vocabulary</NaviListItem>
-        <NaviListItem>Exercises</NaviListItem>
-        <NaviListItem>Profile</NaviListItem>
-      </ul>
+    <div className={'navi-bar'}>
+      <NaviItem name={'language'} icon={'language'}>Language</NaviItem>
+      <NaviItem name={'vocabulary'} icon={'library_books'}>Vocabulary</NaviItem>
+      <NaviItem name={'exercises'} icon={'question_answer'}>Exercises</NaviItem>
+      <NaviItem name={'profile'} icon={'face'}>Profile</NaviItem>
+    </div>
   )
 
 }
 
-export default withRouter(Navigation);
+export default withRouter(NaviBar);
