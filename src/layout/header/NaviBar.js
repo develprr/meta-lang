@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import withRouter from 'react-router-dom/withRouter';
 import {connectToState, disconnectFromStores} from 'metamatic';
-import {STORE_APPLICATION} from '../../stores/application/ApplicationStore';
+import {STORE_APPLICATION} from 'stores/application/ApplicationStore';
 
 const classNames = require('classnames');
 
