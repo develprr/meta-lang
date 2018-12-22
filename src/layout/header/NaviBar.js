@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {disconnectFromStores} from 'metamatic';
-import {connectToUrl, updateUrl} from '../../utils/RouteUtil';
+import {connectToRouter, disconnectFromStores, updateUrl} from 'metamatic';
 
 const classNames = require('classnames');
 
 class NaviItem extends Component {
 
-  componentDidMount = () => connectToUrl(this, (url) => this.setState({url}));
+  componentDidMount = () => connectToRouter(this, (url) => this.setState({url}));
 
   componentWillUnmount = () => disconnectFromStores(this);
 
