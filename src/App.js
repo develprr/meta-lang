@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Header} from 'layout/header/Header';
-import {LanguageView} from 'views/language/LanguageView';
+import {CourseListView} from 'views/courses/CourseListView';
 import {VocabularyView} from 'views/vocabulary/VocabularyView';
 
 import {ExerciseView} from 'views/exercise/ExerciseView';
@@ -15,7 +15,7 @@ export class App extends Component {
   render = () => (
     <div className="meta-lang">
       {matchRoute('/', <Header/>)}
-      {matchRoute('/language', <LanguageView/>)}
+      {matchRoute('/courses', <CourseListView/>)}
       {matchRoute('/vocabulary', <VocabularyView/>)}
       {matchRoute('/exercises', <ExerciseView/>)}
       {matchRoute('/profile', <ProfileView/>)}

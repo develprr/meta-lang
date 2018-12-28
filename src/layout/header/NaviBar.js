@@ -26,7 +26,7 @@ export class NaviBar extends Component {
 
   render = () => (
     <div className={'navi-bar'}>
-      <NaviItem path={'/language'} icon={'language'}>Language</NaviItem>
+      <NaviItem path={'/courses'} icon={'local_library'}>Courses</NaviItem>
       <NaviItem path={'/vocabulary'} icon={'library_books'}>Vocabulary</NaviItem>
       <NaviItem path={'/exercises'} icon={'question_answer'}>Exercises</NaviItem>
       <NaviItem path={'/profile'} icon={'face'}>Profile</NaviItem>

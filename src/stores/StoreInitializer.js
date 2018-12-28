@@ -1,5 +1,5 @@
 import {ExerciseStore} from 'stores/exercise/ExerciseStore';
-import {LanguageStore} from 'stores/language/LanguageStore';
+import {LanguageStore} from 'stores/courses/CourseListStore';
 import {ProfileStore} from 'stores/profile/ProfileStore';
 import {VocabularyStore} from 'stores/vocabulary/VocabularyStore';
 import {ApplicationStore} from './application/ApplicationStore';
