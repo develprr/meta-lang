@@ -1,7 +1,7 @@
-import {ExerciseStore} from 'stores/exercise/ExerciseStore';
-import {LanguageStore} from 'stores/courses/CourseListStore';
-import {ProfileStore} from 'stores/profile/ProfileStore';
-import {VocabularyStore} from 'stores/vocabulary/VocabularyStore';
+import {ExerciseStore} from 'store/exercise/ExerciseStore';
+import {LanguageStore} from 'store/course/CourseListStore';
+import {ProfileStore} from 'store/profile/ProfileStore';
+import {VocabularyStore} from 'store/vocabulary/VocabularyStore';
 import {ApplicationStore} from './application/ApplicationStore';
 import {broadcastCurrentUrl} from 'metamatic';
 

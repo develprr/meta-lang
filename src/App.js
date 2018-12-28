@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Header} from 'layout/header/Header';
-import {CourseListView} from 'views/courses/CourseListView';
-import {VocabularyView} from 'views/vocabulary/VocabularyView';
+import {Header} from 'component/layout/header/Header';
+import {CourseListView} from 'component/view/courses/CourseListView';
+import {VocabularyView} from 'component/view/vocabulary/VocabularyView';
 
-import {ExerciseView} from 'views/exercise/ExerciseView';
-import {ProfileView} from 'views/profile/ProfileView';
+import {ExerciseView} from 'component/view/exercise/ExerciseView';
+import {ProfileView} from 'component/view/profile/ProfileView';
 
 import {connectToRouter, matchRoute} from 'metamatic';
 
