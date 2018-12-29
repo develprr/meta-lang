@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import sortBy from 'lodash';
+import {logObject} from '../../util/LoggingUtil';
 
 const classNames = require('classnames');
 
@@ -62,20 +63,8 @@ export class MetaGrid extends Component {
     return this.sortAlphabetically(data, columns[0]);
   };
 
-  sortAlphabetically = (array, column) => array.sort((a, b) => {
-    const sortDirectionSwapper = column.sortDirection === 'desc' ? -1 : 1;
-    const nameA = a[column.id].toLowerCase();
-    const nameB = b[column.id].toLowerCase();
-    if (nameA < nameB) {
-      return -1 * sortDirectionSwapper;
-    }
-    if (nameA > nameB) {
-      return 1 * sortDirectionSwapper;
-    }
-    return 0;
-  });
 
-  getSortedData = () => this.sortData(this.getData());
+  getSortedData = () => this.getData();
 
   renderCell = (dataItem, colId) => (
     <td className={'data-cell'}>
@@ -107,8 +96,8 @@ export class MetaGrid extends Component {
   render = () => (
     <table className={'meta-grid'}>
       <tbody>
-      {this.renderHeaderRow()}
-      {this.renderDataRows()}
+        {this.renderHeaderRow()}
+        {this.renderDataRows()}
       </tbody>
     </table>
   );
