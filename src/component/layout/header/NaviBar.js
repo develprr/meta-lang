@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connectToRouter, disconnectFromStores, updateUrl} from 'metamatic';
+import {connectToRouter, disconnectFromStores, redirectTo} from 'metamatic';
 
 const classNames = require('classnames');
 
@@ -13,7 +13,7 @@ class NaviItem extends Component {
 
   getStateClass = () => this.isActive() && 'active';
 
-  onClick = () => updateUrl(this.props.path);
+  onClick = () => redirectTo(this.props.path);
 
   render = () => (
     <div className={classNames('navi-item', this.getStateClass())} onClick={this.onClick}>
