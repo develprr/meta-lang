@@ -1,9 +1,29 @@
 .segment {
   background-color: orchid; }
 
-#root {
-  max-width: 800px;
-  margin: auto; }
+.meta-grid {
+  width: 100%;
+  border-radius: 5px;
+  border-collapse: collapse;
+  border-spacing: 0; }
+  .meta-grid .header-row .header-cell {
+    padding: 5px;
+    text-align: left; }
+    .meta-grid .header-row .header-cell i {
+      cursor: pointer; }
+  .meta-grid tr:hover {
+    background-color: aqua; }
+  .meta-grid .data-row .data-cell {
+    border-top-style: solid;
+    border-top-width: 1px;
+    padding: 5px;
+    cursor: pointer; }
+
+body {
+  font-family: Verdana; }
+  body #root {
+    max-width: 800px;
+    margin: auto; }
 
 .navi-bar {
   display: flex;

@@ -46,7 +46,7 @@ export class MetaGrid extends Component {
   );
 
   renderHeaderColumn = (column) => (
-    <th>
+    <th className={'header-cell'}>
       <span className={'header-column-title'}>
         {column.title}
       </span>
