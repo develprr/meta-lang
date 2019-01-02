@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import sortBy from 'lodash';
-import {logObject} from '../../util/LoggingUtil';
+import {sortByProperty} from '@metamatic.net/meta-object/array';
 
 const classNames = require('classnames');
 
@@ -10,11 +9,12 @@ export class MetaGrid extends Component {
     super(props);
     this.state = {
       currentPageIndex: props.currentPageIndex || 0,
-      pageSize: props.pageSize || 10
+      pageSize: props.pageSize || 10,
+      columns: props.columns
     };
   }
 
-  getColumns = () => this.props.columns || [];
+  getColumns = () => this.state.columns || [];
 
   getVisibleColumns = () => this.getColumns().filter(column => column.visible);
 
@@ -34,7 +34,10 @@ export class MetaGrid extends Component {
       ...column,
       sortIndex: column.sortIndex + 1
     }));
-    this.props.onColumnChange(columns);
+    this.setState({
+      ...this.state,
+      columns
+    })
   };
 
   renderSortIcon = (column) => column.sortDirection && (
@@ -46,7 +49,7 @@ export class MetaGrid extends Component {
   );
 
   renderHeaderColumn = (column) => (
-    <th className={'header-cell'}>
+      <th key={column.id} className={'header-cell'}>
       <span className={'header-column-title'}>
         {column.title}
       </span>
@@ -54,34 +57,35 @@ export class MetaGrid extends Component {
     </th>
   );
 
-  getColumnsSortedBySortIndex = () => sortBy(this.getVisibleColumns(), 'sortIndex', 'asc');
+  getColumnsSortedBySortIndex = () => sortByProperty(this.getVisibleColumns(), 'sortIndex', 'asc');
 
   getData = () => this.props.data || [];
 
+  //TODO: implement multi-sort
   sortData = (data) => {
     const columns = this.getColumnsSortedBySortIndex();
-    return this.sortAlphabetically(data, columns[0]);
+    const mainColumn = columns[0];
+    return sortByProperty(data, mainColumn.id, mainColumn.sortDirection);
   };
 
+  getSortedData = () => this.sortData(this.getData());
 
-  getSortedData = () => this.getData();
-
-  renderCell = (dataItem, colId) => (
-    <td className={'data-cell'}>
+  renderCell = (dataItem, colId, index) => (
+      <td key={index} className={'data-cell'}>
       {dataItem[colId]}
     </td>
   );
 
-  renderDataCell = (column, dataCell) => {
+  renderDataCell = (column, dataCell, index) => {
     const renderFunction = column.renderCell || this.renderCell;
-    return renderFunction(dataCell, column.id);
+    return renderFunction(dataCell, column.id, index);
   };
 
   getRowClass = (dataItem) => dataItem.active && 'active';
 
   renderDataItemAsRow = (dataItem, index) => (
     <tr key={index} className={classNames('data-row', this.getRowClass(dataItem))}>
-      {this.getVisibleColumns().map(column => this.renderDataCell(column, dataItem))}
+      {this.getVisibleColumns().map((column, index) => this.renderDataCell(column, dataItem, index))}
     </tr>
   );
 

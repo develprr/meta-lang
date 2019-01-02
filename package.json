@@ -7,9 +7,9 @@
     "react-scripts": "1.1.4"
   },
   "dependencies": {
+    "@metamatic.net/meta-object": "1.1.6",
     "axios": "0.18.0",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
     "metamatic": "2.5.0",
     "react": "16.4.1",
     "react-dom": "16.4.1"
