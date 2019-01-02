@@ -6,7 +6,7 @@ import {VocabularyView} from 'component/view/vocabulary/VocabularyView';
 import {ExerciseView} from 'component/view/exercise/ExerciseView';
 import {ProfileView} from 'component/view/profile/ProfileView';
 
-import {connectToRouter, matchRoute} from 'metamatic';
+import {connectToRouter, matchRoute} from '@metamatic.net/metamatic-router';
 
 export class App extends Component {
 

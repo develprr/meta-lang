@@ -3,7 +3,6 @@ import {CourseStore} from 'store/course/CourseStore';
 import {ProfileStore} from 'store/profile/ProfileStore';
 import {VocabularyStore} from 'store/vocabulary/VocabularyStore';
 import {ApplicationStore} from './application/ApplicationStore';
-import {broadcastCurrentUrl} from 'metamatic';
 
 export const initStores = () => {
   ApplicationStore();
@@ -11,5 +10,4 @@ export const initStores = () => {
   CourseStore();
   ProfileStore();
   VocabularyStore();
-  broadcastCurrentUrl();
 }
