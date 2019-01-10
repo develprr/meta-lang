@@ -1,5 +1,6 @@
-# A Metamatic Language App
-A demo app for showcasing the Metamatic framework and testing Metamatic in different real use cases.
+# A Language App on Metamatic™
+
+A demo app for showcasing Metamatic™ framework and testing it in different real use cases.
 
 ### Introduction
 
@@ -19,9 +20,9 @@ npm install
 
 ## Configuring IDE
 
-The **import** statements in JS files in the project refer to other internal JS files using absolute paths assuming that **src-folder** 
-is the root folder. Your IDE may not automatically grasp that so you have to mark src folder as **Resources Root**. If you ise IntelliJ IDEA, 
-right-click *src* folder and select from the context menu *Mark Directory As -> Resources Root".
+The **import** statements in JS files in the project refer to other internal JS files using absolute paths assuming that **src**-folder 
+is the root folder. Your IDE may not automatically grasp that so you have to mark src folder as **Sources Root**. If you ise IntelliJ IDEA, 
+right-click *src* folder and select from the context menu *Mark Directory As -> Sources Root".
 
 ## Starting the frontend
 
